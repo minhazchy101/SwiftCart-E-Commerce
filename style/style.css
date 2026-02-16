@@ -3,6 +3,49 @@
   padding-right: 1.5rem; /* px-6 */
 }
 
+.sass-btn {
+  padding: 12px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  outline: none;
+}
+
+/* Soft Primary Base */
+.sass-btn-primary {
+  --primary: #081454e4;
+  --primary-solid: #081454;
+
+  background: rgba(8, 20, 84, 0.08);
+  color: var(--primary-solid);
+  border: 1px solid rgba(8, 20, 84, 0.15);
+}
+
+/* Hover → Fill */
+.sass-btn-primary:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(8, 20, 84, 0.25);
+}
+
+/* Active (click press effect) */
+.sass-btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* Keep Active State (like toggle) */
+.sass-active {
+  background: var(--primary-solid);
+  color: #ffffff;
+  border-color: var(--primary-solid);
+  box-shadow: 0 4px 12px rgba(8, 20, 84, 0.3);
+}
+
+
 /* Small screens (sm: >= 640px) */
 @media (min-width: 640px) {
   .section {
