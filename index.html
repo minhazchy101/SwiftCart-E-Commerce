@@ -1,74 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftCart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SwiftCart</title>
 
-    <!-- Tailwind CSS + daisyUI -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- CSS, Tailwind CSS + daisyUI -->
+  <link rel="stylesheet" href="./style/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <!-- Font Awesome (icons) -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 <body>
-    <!-- Navbar -->
-     <section class="px-6 sm:px-12 md:px-24 bg-base-100 shadow-sm">
-      <div class="navbar text-primary">
-  <div class="navbar-start">
-   
-    <a class="btn btn-ghost text-xl font-bold">SwiftCart</a>
-  </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><a class="font-semibold">Home</a></li>
-        <li><a>Products</a></li>
-        <li><a>About</a></li>
-        <li><a>Contacts</a></li>
-    </ul>
-  </div>
-  <div class="navbar-end">
-    <a class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
-     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+  <!-- Navbar -->
+  <section class="section bg-base-100 shadow-sm">
+    <div class="navbar text-primary">
+      <div class="navbar-start">
+
+        <a class="btn btn-ghost text-xl font-bold">SwiftCart</a>
       </div>
-      <ul
-        tabindex="-1"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a>Home</a></li>
-        <li><a>Products</a></li>
-        <li><a>About</a></li>
-        <li><a>Contacts</a></li>
-      </ul>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a class="font-semibold">Home</a></li>
+          <li><a>Products</a></li>
+          <li><a>About</a></li>
+          <li><a>Contacts</a></li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a class="btn"><i class="fa-solid fa-cart-shopping"></i></a>
+        <div class="dropdown">
+          <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </div>
+          <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            <li><a>Home</a></li>
+            <li><a>Products</a></li>
+            <li><a>About</a></li>
+            <li><a>Contacts</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>   
-     </section>
-    
-    <!-- <h1 class="text-3xl font-bold">SwiftCart E-Commerce</h1> -->
-     <!-- Hero Section -->
-      <div
-  class="min-h-[75vh] hero"
-  style="background-image:  linear-gradient(to right, rgba(31, 43, 114, 0.752), rgba(0,0,0,0.2)), url('Assets/banner-image.png'); 
+  </section>
+
+  <!-- <h1 class="text-3xl font-bold">SwiftCart E-Commerce</h1> -->
+  <!-- Hero Section -->
+  <div class="min-h-[75vh] hero" style="background-image:  linear-gradient(to right, rgba(31, 43, 114, 0.752), rgba(0,0,0,0.2)), url('Assets/banner-image.png'); 
          background-size: cover; 
          background-position: center; 
-         background-repeat: no-repeat;"
->
+         background-repeat: no-repeat;">
 
- <div class="hero-overlay"></div>
-  <div class="text-neutral-content w-full px-6 sm:px-12 md:px-24 ">
-    <div class="text-center md:text-start">
-      <h1 class="mb-5 text-3xl  md:text-5xl font-bold">Best Collection For You.</h1>
-      <p class="mb-5">
-        Discover the latest trends In fashion, electronics and more. Shop with confidence and style at SwiftCart
-      </p>
+    <div class="hero-overlay"></div>
+    <div class="text-neutral-content w-full section ">
+      <div class="text-center md:text-start">
+        <h1 class="mb-5 text-3xl  md:text-5xl font-bold">Best Collection For You.</h1>
+        <p class="mb-5">
+          Discover the latest trends In fashion, electronics and more. Shop with confidence and style at SwiftCart
+        </p>
 
-      <button class="btn btn-primary">Shop Now</button>
+        <button class="btn btn-primary">Shop Now</button>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- Why Choose Us -->
+  <section class="section py-10 bg-base-300">
+    <div class="text-center">
+      <h1 class="mb-7 text-3xl  md:text-5xl font-bold">Why Choose Us</h1>
+      <p class="font-semibold text-gray-700">We provide the best shopping experience with top-notch services</p>
+    </div>
+
+    <div id="features-container" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 py-18">
+
+    </div>
+
+  </section>
+
+  <!-- Trending -->
+  <section class="section py-10">
+    <div class="text-start">
+      <h1 class="mb-7 text-3xl md:text-5xl font-bold">Trending Now</h1>
+    
+    </div>
+    <div id="trend-container" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+
+    </div>
+  </section>
+
+
+  <script src="./script.js"></script>
 </body>
+
 </html>
