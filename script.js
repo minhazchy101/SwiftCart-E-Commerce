@@ -101,4 +101,4 @@ const displayTrend = (trends) => {
 };
 fetchProducts();
 displayFeatures();
-// displayTrend()
+displayTrend()
