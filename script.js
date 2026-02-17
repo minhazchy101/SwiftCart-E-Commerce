@@ -55,9 +55,13 @@ const fetchProducts = () => {
   const url = "https://fakestoreapi.com/products";
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayProducts(data));
+    .then((data) =>{
+      removeActive();
+      let allBtn = document.getElementById("catBtn-all");
+      allBtn.classList.add("sass-active")
+      displayProducts(data)});
 };
-let allBtn = document.getElementById("all-btn");
+let allBtn = document.getElementById("catBtn-all");
 allBtn.addEventListener("click", fetchProducts)
 
 const displayProducts =(products)=>{
@@ -89,7 +93,7 @@ const displayProducts =(products)=>{
 
     <p class="text-lg font-bold text-[#0e1438cf]">$ ${product.price}</p>
     <div class="card-actions flex justify-between">
-      <div class="flex-1"> <button class="btn btn-outline btn-sm gap-2 w-full">
+      <div class="flex-1"> <button onclick="fetchDetails(${product.id})" class="btn btn-outline btn-sm gap-2 w-full">
         <i class="fa-solid fa-eye"></i> Details
       </button>
      
@@ -158,27 +162,90 @@ const fetchCategory =()=>{
 }
 
 const displayCategory =(categories)=>{
-      console.log(categories)
       const categoryContainer = document.getElementById("category-container");
       categories.forEach((category)=>{
        
         const categoryCard = document.createElement("div")
         categoryCard.innerHTML = `
-        <button class="sass-btn sass-btn-soft sass-btn-primary" onclick="loadCategory('${category}')">${category.toUpperCase()}</button>
+        <button id="catBtn-${category}" class="sass-btn sass-btn-soft sass-btn-primary" onclick="loadCategory('${category}')">${category.toUpperCase()}</button>
         `
         categoryContainer.append(categoryCard);
       })
 }
 
+const removeActive =()=>{
+     const lBtn = document.querySelectorAll(".sass-btn")
+    //  lBtn.forEach(btn => console.log(btn))
+     lBtn.forEach(btn => btn.classList.remove("sass-active"))
+}
 const loadCategory =(category)=>{
-  console.log(category)
       const url = `https://fakestoreapi.com/products/category/${category}`;
   fetch(url)
     .then((response) => response.json())
-    .then((data) => displayProducts(data));
+    .then((data) =>{
+      removeActive();
+      const cBtn = document.getElementById(`catBtn-${category}`)
+      cBtn.classList.add("sass-active")
+      displayProducts(data)});
+}
+
+const fetchDetails =(id)=>{
+      const url = `https://fakestoreapi.com/products/${id}`
+     fetch(url)
+    .then((res) => res.json())
+    .then((data) => displayModal(data));
+}
+
+const displayModal =(details)=>{
+  console.log(details)
+  const detailsContainer = document.getElementById("details-container")
+  detailsContainer.innerHTML = `
+   <div class="card">
+      <figure class="h-56 overflow-hidden">
+        <img
+          class="w-36 h-50 object-cover"
+          src="${details.image}"
+          alt="Shoes" />
+      </figure>
+      <div class="card-body space-y-3">
+        <h2 class="card-title text-xl font-bold flex items-center">
+       <span class="text-lg font-bold text-[#3649b4cf]">Title:</span> ${details.title}
+        </h2>
+
+        <p class="text-base-content/70">
+      <span class="text-lg font-bold text-[#3649b4cf]">Description: </span>${details.description}</p>
+         <p class="text-lg font-bold text-[#0e1438cf]">Price: $ ${details.price}
+         </p>
+         <p class="font-semibold flex items-center">Rating: <i class="fas fa-star text-yellow-500"></i> ${details.rating.rate}</p>
+    
+
+        <!-- <div class="card-actions justify-between items-center mt-4">
+
+          <span class="text-lg font-semibold">$129</span>
+          <button class="btn btn-primary">
+            Buy Now
+          </button>
+        </div> -->
+
+           <!-- Modal Close Button -->
+    <div class="modal-action px-6 pb-6">
+      <form method="dialog" class="flex gap-4">
+        <button class="btn btn-primary">
+        Buy Now
+        </button>
+        <button class="btn btn-outline">
+          Close
+        </button>
+      </form>
+    </div>
+      </div>
+    </div>
+  `
+
+  document.getElementById("details_modal").showModal();
 }
 
 fetchCategory();
 fetchProducts();
-displayFeatures();
+// displayFeatures();
 // displayTrend()
