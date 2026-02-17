@@ -1,13 +1,13 @@
-const fetchProducts = () => {
+const fetchProducts = async () => {
      mangeSpinner(true)
   const url = "https://fakestoreapi.com/products";
-  fetch(url)
+   await fetch(url)
     .then((response) => response.json())
     .then((data) => {
+      displayProducts(data);
       removeActive();
       let allBtn = document.getElementById("catBtn-all");
       allBtn.classList.add("sass-active");
-      displayProducts(data);
     });
 };
 const mangeSpinner =(status)=>{
@@ -68,12 +68,12 @@ const displayProducts = (products) => {
   });
 };
 
-const fetchCategory = () => {
-  const url = "https://fakestoreapi.com/products/categories";
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => displayCategory(data));
+const fetchCategory = async () => {
+  const response = await fetch("https://fakestoreapi.com/products/categories");
+  const data = await response.json();
+  displayCategory(data);
 };
+
 
 const displayCategory = (categories) => {
   const categoryContainer = document.getElementById("category-container");
